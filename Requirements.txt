@@ -1,0 +1,52 @@
+# =====================================================================
+# Synergized Marine Monitoring — Python dependencies
+# =====================================================================
+# Target: Python >= 3.10
+# Tested on:  Ubuntu 22.04 / Windows 10 / NVIDIA Jetson Orin Nano (JetPack 6)
+# =====================================================================
+
+# ---------- Core scientific stack ----------
+numpy>=1.26,<2.0
+pandas>=2.1
+scipy>=1.11
+
+# ---------- Computer vision ----------
+opencv-python>=4.9
+Pillow>=10.0
+
+# ---------- Deep learning / detection ----------
+# PyTorch: for GPU support, install via https://pytorch.org with the correct CUDA wheel.
+# On CPU-only systems the pip wheels below are sufficient.
+torch>=2.2
+torchvision>=0.17
+ultralytics>=8.3            # provides the YOLOv11 implementation
+
+# ---------- Tabular ML / water-quality module ----------
+scikit-learn>=1.4
+xgboost>=2.0
+imbalanced-learn>=0.12      # SMOTE oversampling (training fold only)
+pycaret>=3.3                # used by app.py to load the trained XGBoost pickle
+
+# ---------- Interpretability ----------
+shap>=0.45                  # SHAP summary + dependence plots
+
+# ---------- Visualisation ----------
+matplotlib>=3.8
+seaborn>=0.13
+
+# ---------- Demo UI ----------
+streamlit>=1.32
+
+# ---------- Notebook execution ----------
+jupyter>=1.0
+ipykernel>=6.29
+
+# =====================================================================
+# Optional — edge / TensorRT deployment (install separately on Jetson):
+#   - NVIDIA JetPack 6.x         (provides CUDA + TensorRT)
+#   - onnx>=1.16
+#   - onnxruntime-gpu>=1.18      # or onnxruntime for CPU-only
+#   - tensorrt                   (pre-installed with JetPack on Jetson)
+# Optional — CUDA-accelerated OpenCV (for DCP + CLAHE on GPU):
+#   - opencv-contrib-python      (replace opencv-python above)
+# =====================================================================
